@@ -92,7 +92,7 @@ with open('top_weights.txt') as f:
             w_uni_name=line_list[0]+' '+line_list[1]+' '+line_list[2]+' '+line_list[3]
             w1=4
             print('found name ',w_uni_name)
-        elif(len(line_List) == 15):
+        elif(len(line_list) == 15):
             w_uni_name=line_list[0]+' '+line_list[1]+' '+line_list[2]+' '+line_list[3]+' '+line_list[4]
             w1=5
             print('found name ',w_uni_name)
