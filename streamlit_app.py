@@ -43,22 +43,6 @@ row_num_top=Guardian_data_df[Guardian_data_df['Institution'] == top_uni_name].in
 print('row number of selected uni ',row_num_top,Guardian_data_df.iloc[row_num_top,0])
 
 
-stringy='This league table uses data from the [2019 Guardian league table](https://www.theguardian.com/education/ng-interactive/2018/may/29/university-league-tables-2019), which uses nine metrics [2] (numbers) $$M_i$$ that are assumed to quantify teaching quality: '
-for i in range(0,n-1):
-    stringy += Guardian_data_df.columns[i+2]+"; "
-stringy += Guardian_data_df.columns[10]+"."
-
-st.markdown(stringy)
-st.markdown("This league table web app is just to illustrate how arbitrary is any ranking of institutions as complex and diverse as universities. If you actually want to compare UK universities, please see a [web app that compares and ranks universities based on criteria you choose](https://university-league-tables.herokuapp.com/). That (better) web app was done by Ethan Hinton, a great then-Surrey-student who did a project with me in the first half of 2021. ")
-
-st.markdown('A league table is just a ranking of universities, here this is supposed to be for teaching. To rank using a set of $$n$$ metrics $$M_i$$ with $$i=1,n$$, one number, TS, is computed from the $$n$$ numbers - i.e., the metrics - using')
-st.latex(r'{\rm TS}=\sum_{i=1}^nw_iM_i')
-st.markdown(r"then the 'top' university is the university with highest value of TS, 'second-best' university has second highest value of TS, ...., 'worst' university has lowest value of TS.")
-
-st.markdown("However TS depends on values of weights $$w_i$$ as well as values of metrics $$M_i$$. This web app exploits the fact that for any set of metrics there are an infinite number of league tables - each one with different set of values for the weights $$w_i$$. The web app varies the values of the $$w_i$$ to try and put the university you select at the top, and so the 'best' university - according to this particular university league table - one of the infinite number of leagure tables you can compute.")
-
-st.markdown("NB does not work for a couple of universities, eg Liverpool John Moores, Queen's Belfast, Sheffield Hallam, Sunderland, Central Lancashire, St Mary's, Twickenham, East London, Worcester, Chester, Birmingham City")
-#
 def TScalc(weights):
     for i_uni in range(0,n_uni):
         score_vector=weights[:]*Guardian_data_df.iloc[i_uni,2:2+n]
@@ -129,7 +113,26 @@ if(found_uni_weights):
         st.write(stringy)
 else:
     st.write('Sorry League Table Omatic has failed you ')
-    
 #
-st.markdown(r"[1] NB There are [about 160 Higher Education Institutions (HEI)s in the UK](https://www.universitiesuk.ac.uk/latest/insights-and-analysis/higher-education-numbers). The data used here is from The Guardian 2019 table which has only 121. The Guardian removes some of the 40 HEIs using a rather arbitrary cutoff.")
+
+stringy='This league table uses data from the [2019 Guardian league table](https://www.theguardian.com/education/ng-interactive/2018/may/29/university-league-tables-2019), which uses nine metrics [2] (numbers) $$M_i$$ that are assumed to quantify teaching quality: '
+for i in range(0,n-1):
+    stringy += Guardian_data_df.columns[i+2]+"; "
+stringy += Guardian_data_df.columns[10]+"."
+
+st.markdown(stringy)
+st.markdown("This league table web app is just to illustrate how arbitrary is any ranking of institutions as complex and diverse as universities. If you actually want to compare UK universities, please see a [web app that compares and ranks universities based on criteria you choose](https://university-league-tables.herokuapp.com/). That (better) web app was done by Ethan Hinton, a great then-Surrey-student who did a project with me in the first half of 2021. ")
+
+st.markdown('A league table is just a ranking of universities, here this is supposed to be for teaching. To rank using a set of $$n$$ metrics $$M_i$$ with $$i=1,n$$, one number, TS, is computed from the $$n$$ numbers - i.e., the metrics - using')
+st.latex(r'{\rm TS}=\sum_{i=1}^nw_iM_i')
+st.markdown(r"then the 'top' university is the university with highest value of TS, 'second-best' university has second highest value of TS, ...., 'worst' university has lowest value of TS.")
+
+st.markdown("However TS depends on values of weights $$w_i$$ as well as values of metrics $$M_i$$. This web app exploits the fact that for any set of metrics there are an infinite number of league tables - each one with different set of values for the weights $$w_i$$. The web app varies the values of the $$w_i$$ to try and put the university you select at the top, and so the 'best' university - according to this particular university league table - one of the infinite number of leagure tables you can compute.")
+
+st.markdown("NB does not work for a couple of universities, eg Liverpool John Moores, Queen's Belfast, Sheffield Hallam, Sunderland, Central Lancashire, St Mary's, Twickenham, East London, Worcester, Chester, Birmingham City")
+#
+#
+st.markdown('web app by [Richard Sear](https://richardsear.me/)')
+#
+st.markdown("[1] NB There are [about 160 Higher Education Institutions (HEI)s in the UK](https://www.universitiesuk.ac.uk/latest/insights-and-analysis/higher-education-numbers). The data used here is from The Guardian 2019 table which has only 121. The Guardian removes some of the 40 HEIs using a rather arbitrary cutoff.")
 st.markdown("[2] NB The Guardian does some dodgey things to get some of the metrics. For example, some of the metrics come from National Student Survey results, which are missing for Oxford and Cambridge. The Guardian kind of makes things up here.")
