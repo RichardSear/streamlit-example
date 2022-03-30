@@ -1,6 +1,6 @@
-# Welcome to Streamlit!
+# I should probably edit this more
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+app is discussed in [blog post here](https://chanceandnecessity.net/2022/03/29/your-university-can-be-the-best-at-the-click-of-a-mouse/)
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
+This is a streamlit app - if you have any questions on streamlit, checkout [documentation](https://docs.streamlit.io) and [community
 forums](https://discuss.streamlit.io).
