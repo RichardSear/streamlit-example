@@ -129,10 +129,11 @@ st.markdown(r"then the 'top' university is the university with highest value of 
 
 st.markdown("However TS depends on values of weights $$w_i$$ as well as values of metrics $$M_i$$. This web app exploits the fact that for any set of metrics there are an infinite number of league tables - each one with different set of values for the weights $$w_i$$. The web app varies the values of the $$w_i$$ to try and put the university you select at the top, and so the 'best' university - according to this particular university league table - one of the infinite number of leagure tables you can compute.")
 
-st.markdown("NB does not work for a couple of universities, eg Liverpool John Moores, Queen's Belfast, Sheffield Hallam, Sunderland, Central Lancashire, St Mary's, Twickenham, East London, Worcester, Chester, Birmingham City")
+st.markdown("NB does not work for a couple of universities, eg Queen's Belfast, Sheffield Hallam, Sunderland, Central Lancashire, St Mary's, Twickenham, East London, Worcester, Chester, Birmingham City")
 #
 #
 st.markdown('web app by [Richard Sear](https://richardsear.me/)')
+st.markdown('code etc is in a [Github repository](https://github.com/RichardSear/streamlit-example)')
 #
-st.markdown("[1] NB There are [about 160 Higher Education Institutions (HEI)s in the UK](https://www.universitiesuk.ac.uk/latest/insights-and-analysis/higher-education-numbers). The data used here is from The Guardian 2019 table which has only 121. The Guardian removes some of the 40 HEIs using a rather arbitrary cutoff.")
+st.markdown("[1] NB There are [about 160 Higher Education Institutions (HEI)s in the UK](https://www.universitiesuk.ac.uk/latest/insights-and-analysis/higher-education-numbers). The data used here is from The Guardian 2019 table which has only 121. The Guardian removes some of the other 40 HEIs using a rather arbitrary cutoff.")
 st.markdown("[2] NB The Guardian does some dodgey things to get some of the metrics. For example, some of the metrics come from National Student Survey results, which are missing for Oxford and Cambridge. The Guardian kind of makes things up here.")
